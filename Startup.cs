@@ -23,12 +23,15 @@ namespace Shop
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddControllers();
-			
-			// Configura a conexão com o banco de dados
-      services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
 
-			// Permite que tenha um DataContext por conexão
-			services.AddScoped<DataContext, DataContext>();
+      // Configura a conexão com o banco de dados em memória
+      // services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
+
+      // Configura a conexão com o SQL Server
+      services.AddDbContext<DataContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("connectionString")));
+
+      // Permite que tenha um DataContext por conexão
+      services.AddScoped<DataContext, DataContext>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
