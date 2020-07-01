@@ -10,7 +10,7 @@ using Shop.Models;
 // http://localhost:5000
 // https://localhost:5001
 
-[Route("categories")]
+[Route("v1/categories")]
 public class CategoryController : ControllerBase
 {
   [HttpGet]
