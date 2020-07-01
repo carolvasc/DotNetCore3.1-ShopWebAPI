@@ -6355,7 +6355,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Microsoft.AspNetCore.Authentication >= 2.2.0",
-      "Microsoft.AspNetCore.Authentication.JWTBearer >= *",
+      "Microsoft.AspNetCore.Authentication.JWTBearer >= 3.1.5",
       "Microsoft.EntityFrameworkCore.Design >= 3.1.5",
       "Microsoft.EntityFrameworkCore.InMemory >= 3.1.5",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.5"
@@ -6402,7 +6402,7 @@
           },
           "Microsoft.AspNetCore.Authentication.JWTBearer": {
             "target": "Package",
-            "version": "[*, )"
+            "version": "[3.1.5, )"
           },
           "Microsoft.EntityFrameworkCore.Design": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

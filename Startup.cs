@@ -41,8 +41,8 @@ namespace Shop
           IssuerSigningKey = new SymmetricSecurityKey(key),
           ValidateIssuer = false,
           ValidateAudience = false
-        }
-      })
+        };
+      });
 
       // Configura a conexão com o banco de dados em memória
       // services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
