@@ -16,6 +16,9 @@ public class CategoryController : ControllerBase
   [HttpGet]
   [Route("")]
   [AllowAnonymous]
+  // Cache por requisição
+  [ResponseCache(VaryByHeader = "User-Agent", Location = ResponseCacheLocation.Any, Duration = 30)]
+  // [ResponseCache(Durantion = 0, Location = ResponseCacheLocation.None, NoStore = true)] // Utilizar essa linha quando o cache estiver habilitado no Startup
   public async Task<ActionResult<List<Category>>> Get(
     [FromServices] DataContext context
   )
