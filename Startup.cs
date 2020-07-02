@@ -60,10 +60,10 @@ namespace Shop
       });
 
       // Configura a conexão com o banco de dados em memória
-      services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
+      // services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
 
       // Configura a conexão com o SQL Server
-      // services.AddDbContext<DataContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("connectionString")));
+      services.AddDbContext<DataContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("connectionString")));
 
       services.AddSwaggerGen(c =>
       {
@@ -78,10 +78,10 @@ namespace Shop
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-      if (env.IsDevelopment())
-      {
+      // if (env.IsDevelopment())
+      // {
         app.UseDeveloperExceptionPage();
-      }
+      // }
 
       app.UseHttpsRedirection();
 
