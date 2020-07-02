@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using Shop.Data;
 
 namespace Shop
@@ -66,6 +67,15 @@ namespace Shop
 
       // Permite que tenha um DataContext por conexão
       services.AddScoped<DataContext, DataContext>();
+
+      services.AddSwaggerGen(c =>
+      {
+        c.SwaggerDoc("v1", new OpenApiInfo
+        {
+          Version = "v1",
+          Title = "Shop Api"
+        });
+      });
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -77,6 +87,13 @@ namespace Shop
       }
 
       app.UseHttpsRedirection();
+
+      app.UseSwagger();
+
+      app.UseSwaggerUI(c =>
+      {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Shop API v1");
+      });
 
       app.UseRouting();
 
