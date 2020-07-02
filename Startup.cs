@@ -60,13 +60,10 @@ namespace Shop
       });
 
       // Configura a conexão com o banco de dados em memória
-      // services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
+      services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
 
       // Configura a conexão com o SQL Server
-      services.AddDbContext<DataContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("connectionString")));
-
-      // Permite que tenha um DataContext por conexão
-      services.AddScoped<DataContext, DataContext>();
+      // services.AddDbContext<DataContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("connectionString")));
 
       services.AddSwaggerGen(c =>
       {
